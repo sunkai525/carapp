@@ -1,0 +1,15 @@
+<div class="row no-gutters py-3 px-3 app-nav position-fixed fixed-top navigation">
+	<div class="col-3 text-truncate">{{title}}</div>
+	<div class="col-6 text-center"></div>
+	<div class="col-3 d-flex justify-content-end"><i class="bi bi-trash-fill"></i></div>
+</div>
+
+
+
+<ul class="position-fixed fixed-bottom tabBar d-flex justify-content-around py-3">
+	<div @click="switchPages('index')">首页</div>
+	<div class="active" @click="switchPages('message')">消息</div>
+	<div @click="switchPages('Inquiry')"><p class="d-flex rounded-circle">一键询价</p></div>
+	<div @click="switchPages('concern')">关注</div>
+	<div @click="switchPages('user')">我的</div>
+</ul>

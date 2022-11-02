@@ -1,0 +1,19 @@
+<div class="row no-gutters py-3 px-3 app-nav position-fixed fixed-top navigation">
+	<div class="col-3 text-truncate" @click="back"><i class="bi bi-x-lg"></i></div>
+	<div class="col-6 text-center">{{title}}</div>
+	<div class="col-3 d-flex justify-content-end"></div>
+</div>
+
+<div v-for="lter in letter" class="pl-3">
+	<div :id="'letter' + lter" class="font-weight-bolder py-2">{{lter}}</div>
+	<ul>
+		<li class="py-2">山东</li>
+		<li class="py-2">潍坊</li>
+		<li class="py-2">寿光</li>
+		<li class="py-2">高新</li>
+	</ul>
+</div>
+
+<ul class="position-fixed">
+	<li v-for="ltr in letter" class="mt-3" @click="scrollCity(ltr)">{{ltr}}</li>
+</ul>

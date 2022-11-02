@@ -1,0 +1,161 @@
+@charset "utf-8";
+
+/*------------------------------------------------------------
+    样式初始化
+------------------------------------------------------------*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td, article, section, a, header, footer {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+img {
+    border: none;
+    display: block;
+    width: 100%;
+    min-height: 100%;
+}
+
+ol, ul, li {
+    list-style: none;
+}
+
+input, textarea, select, button {
+    outline: none;
+    border: none;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+/*---------------------------------------以上为公共样式------------------------------------------------*/
+
+/* -moz-     火狐等使用Mozilla浏览器引擎的浏览器 */
+
+/* -webkit-  Safari, 谷歌浏览器等使用Webkit引擎的浏览器 */
+
+/*-o-        Opera浏览器(早期) */
+
+/* -ms-      Internet Explorer (不一定) */
+
+/*
+range() 范围函数
+extract(@company,1) 返回xp 获取指定位置的元素
+each(要循环的变量,.(@值，@键，@下标)) @下标从1开始
+if((2 > 1), 0, 3px);
+boolean() 判断真假
+length() 长度
+min(1,2,3,4,5) 返回最小值 1
+max(1,2,3,4,5) 返回最大值 5
+
+
+@number : range(1%, 100%, 1);
+@company : xp em rem % pt mm;
+
+each(@number, .(@v, @k, @i){
+  .width_@{i} {
+    width: @v;
+  }
+});
+*/
+
+
+
+/* 颜色 */
+@cr-mi: #131416;//主色调
+@cr-mi-shadow: #1C1F21;//阴影
+@cr-f1: #FEE854;//副色调1
+@cr-f2: #FF4342;//副色调2
+
+body{
+    color: #ffffff;
+    background-color: @cr-mi;
+}
+
+#app{
+    min-height: 100vh;
+}
+
+/**
+ * 自定义按钮颜色
+ */
+.btn-custom-yellow{
+    color: @cr-mi;
+    background-color: @cr-f1;
+    border-color: @cr-f1;
+}
+
+/**
+ * 加载动画
+ */
+.dot-window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+/**
+ * 去除bootstrap内外边距
+ */
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+
+    > .col, > [class*="col-"] {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+}
+
+/* 隐藏 Chrome、Safari 和 Opera 的滚动条 */
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* 隐藏 IE、Edge 和 Firefox 的滚动条 */
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/**
+ * 底部导航
+ */
+.tabBar{
+    z-index: 1;
+    background-color: @cr-mi;
+    div{
+        &.active{
+            color: @cr-f2;
+        }
+    }
+}
+/**
+ * 顶部导航
+ */
+.navigation{
+    z-index: 1;
+    background-color: @cr-mi;
+}

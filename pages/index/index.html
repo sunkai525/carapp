@@ -1,0 +1,80 @@
+<div class="row no-gutters py-3 px-3 app-nav position-fixed fixed-top navigation">
+	<div class="col-3 text-truncate" @click="switchPages('address')">
+		<i class="bi bi-geo-alt-fill"></i>
+		{{city}}
+	</div>
+	<div class="col-6 text-center"></div>
+	<div class="col-3 d-flex justify-content-end">
+		<!-- <i class="bi bi-search" @click="switchPages('search')"></i> -->
+	</div>
+</div>
+<ul class="nav nav-scroll">
+	<li class="nav-item"> <a class="nav-link active" href="javascript:;">综合</a> </li>
+	<li class="nav-item"> <a class="nav-link" href="javascript:;">直播</a> </li>
+	<li class="nav-item"> <a class="nav-link" href="javascript:;">新车</a> </li>
+	<li class="nav-item"> <a class="nav-link">二手车</a> </li>
+	<li class="nav-item"> <a class="nav-link" href="javascript:;">卡车</a> </li>
+	<li class="nav-item"> <a class="nav-link" href="javascript:;">配件</a> </li>
+	<li class="nav-item"> <a class="nav-link" href="javascript:;">装饰</a> </li>
+	<li class="nav-item"> <a class="nav-link">金融</a> </li>
+	<li class="nav-item"> <a class="nav-link">保险</a> </li>
+</ul>
+<ul class="video-col-ul px-3" @scroll="scrollul">
+	<li class="py-3" v-for="(li,likey) in 5">
+		<div class="d-flex align-items-start">
+			<img class="rounded-circle" src="https://i.postimg.cc/Kc6YLN48/1.jpg">
+			<div class="pl-3">
+				<div>奇瑞新能源</div>
+				<div class="mt-2 d-flex justify-content-between align-items-end">
+					<div><i class="bi bi-star-fill mr-1" v-for="(sitm,sk) in 5" :class="{'active' : sk <= 2}"></i></div>
+					<span>2022.9.5</span>
+				</div>
+			</div>
+		</div>
+		<div class="video-view mt-3 position-relative">
+			<video 
+			:data-key="likey" 
+			loop 
+			muted="true" 
+			:poster="config.images + '/01e788554beb5f000001bf7273a0c6.jpg@1280w_1l_2o_100sh.jpg'" 
+			:src="config.video + '/23209ca4a24c0bc793b89b93af9bafe3.mp4'" 
+			type="video/mp4" 
+			@click="fullScreen" 
+			webkit-playsinline 
+			playsinline
+			x5-video-player-type="h5" 
+			></video>
+
+			<div @click="videoAction" class="position-absolute d-flex justify-content-end align-items-end px-3 py-3 old-controls"></div>
+
+			<div class="full-controls w-100 h-100" @click="videoAction">
+				<div class="py-2 px-2 position-absolute break" @click.stop="recoverSmall"><i class="bi bi-chevron-left"></i></div>
+				<div class="play-icon"></div>
+				<ul class="position-absolute">
+					<div class="logo"><img src="https://i.postimg.cc/Kc6YLN48/1.jpg"></div>
+					<li><i class="bi bi-heart-fill"></i>11</li>
+					<li><i class="bi bi-chat-square-dots-fill"></i>22</li>
+					<li><i class="bi bi-star-fill"></i>33</li>
+					<li><i class="bi bi-folder-symlink-fill"></i>44</li>
+				</ul>
+				<div @click.stop="showAll" class="bottom position-absolute text-justify py-2 px-2 hideAll">
+					<p>@奇瑞新能源</p>
+					“双减”是贯彻中央决策部署的重大教育改革，是落实教育法、义务教育法、未成年人保护法的实际举措，事关基础教育体系、教育生态和育人格局，对于全面贯彻党的教育方针、促进学生全面发展健康成长具有重要意义。 
+				</div>
+			</div>
+		</div>
+		<div class="row no-gutters mt-3">
+			<div class="col-3"><i class="bi bi-heart-fill mr-1"></i>0</div>
+			<div class="col-3"><i class="bi bi-chat-square-dots-fill mr-1"></i>0</div>
+			<div class="col-3"><i class="bi bi-star-fill mr-1"></i>0</div>
+			<div class="col-3"><i class="bi bi-folder-symlink-fill mr-1"></i>0</div>
+		</div>
+	</li>
+</ul>
+<ul class="position-fixed fixed-bottom tabBar d-flex justify-content-around py-3">
+	<div class="active" @click="switchPages('index')">首页</div>
+	<div @click="switchPages('message')">消息</div>
+	<div @click="switchPages('Inquiry')"><p class="d-flex rounded-circle">一键询价</p></div>
+	<div @click="switchPages('concern')">关注</div>
+	<div @click="switchPages('user')">我的</div>
+</ul>
